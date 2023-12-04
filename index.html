@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <h1>Кликните на кнопку ниже</h1>
+        <button id="myButton">Кликните, чтобы увидеть форму</button>
+        <div id="myWindow" class="window">
+            <div class="window-content">
+            <p>Введите что-то</p>
+            <input type="text" placeholder="text" id="inp">
+            <div class="btn_div">
+                <span class="btn ok">Ok</span>
+                <span class="btn close">Отмена</span>
+                </div>
+            </div>
+        
+        </div>
+
+
+<script>
+
+    var modal = document.getElementById("myWindow");
+    var btn = document.getElementById("myButton");
+    var span1 = document.getElementsByClassName("ok")[0];
+    var span2 = document.getElementsByClassName("close")[0];
+    
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span1.onclick = function(){
+        value = document.getElementById("inp").value 
+        if (value != "") {
+            alert("Ура! Вы знаете что такое '" + value + "'")
+            modal.style.display = "none";
+        }
+    }
+    
+    span2.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    window.addEventListener('keydown', function(e) {
+        let keyCode = e.keyCode;
+        if (keyCode === 27) {
+            modal.style.display = "none"; }
+    });
+
+</script>
+
+</body>
+</html>
